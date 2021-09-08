@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> WeBuild</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript">
+      function fn1(){
+        var email=document.getElementById("email").value;
+        var name=document.getElementById("name").value;
+
+        if(!name || !email){
+          alert("YOU entered No inputs");
+        }else{
+          alert("Thank you " + name + " for subscribing with " + email);
+        }
+      }
+      setInterval(displayclock,500)
+function displayclock(){
+  var time= new Date();
+  var hrs = time.getHours();
+  var min = time.getMinutes();
+  var sec= time.getSeconds();
+
+  var today= new Date();
+  var month= today.getMonth() ;
+  var monthsRemain = 12-month;
+  var daysRemain = monthsRemain* 30;
+  var weeksRemain= daysRemain/7;
+  var nRemDays=(weeksRemain % 7)*7;
+
+
+  if(hrs>12){
+hrs=hrs-12;
+  }
+  if(hrs==0){
+    hrs=12;
+  }
+  document.getElementById('date').innerHTML=parseInt(weeksRemain) + " weeks " + Math.round(nRemDays) + " days " ;
+  document.getElementById('clock').innerHTML= hrs + " : " + min + " : " + sec ;
+}
+
+    </script>
+  </head>
+  <body>
+    <div class="contact-title">
+      <h2>
+<span>Webuild</span>
+<span>Contact us</span>
+      </h2>
+      <h1>WeBuild</h1>
+      <p>we're working hard to improve our website and we'll ready to launch after </p>
+<p id="date"> </p>
+<div  id="clock"> </div>
+
+    </div>
+
+    <form method="post">
+    <input id="name" placeholder="Your name">
+    <input id="email" placeholder="Your email">
+    <br>
+    <button onclick="fn1()" id="btn1">Get notified!</button>
+    </form>
+  </body>
+</html>
